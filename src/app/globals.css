@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 278 17% 16%;
+    --foreground: 0 0% 98%;
+    --card: 278 17% 20%;
+    --card-foreground: 0 0% 98%;
+    --popover: 278 17% 16%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 30 100% 60%;
+    --primary-foreground: 278 17% 10%;
+    --secondary: 30 47% 65%;
+    --secondary-foreground: 278 17% 10%;
+    --muted: 278 17% 25%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 30 47% 65%;
+    --accent-foreground: 278 17% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 278 17% 25%;
+    --input: 278 17% 25%;
+    --ring: 30 100% 60%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'PT Sans', sans-serif;
+  }
+}
+
+.spotlight-effect {
+  position: relative;
+}
+
+.spotlight-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(212, 162, 118, 0.25) 0%, transparent 60%);
+  animation: pulse 5s infinite ease-in-out;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+}
